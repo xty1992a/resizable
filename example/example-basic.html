@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example - basic</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        #box{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #e5e5e5;
+            position: relative;
+
+            margin: 50px;
+        }
+
+        .child{
+            background: yellowgreen;
+            height: 100px;
+            width: 100px;
+
+            transform: translate(100px, 0);
+        }
+
+
+        .resize-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+        }
+
+        .resize-item:hover .move-rect, .resize-item:hover .move-line{
+            opacity: 1;
+        }
+
+        .move-rect,.move-line{
+            opacity: 0;
+            user-select: none;
+            touch-action: none;
+            transition: opacity .2s;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            background-color: #fff;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+        }
+
+        .move-rect{
+            position: absolute;
+
+            width: 10px;
+            height: 10px;
+        }
+
+        .move-rect-tl {
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            cursor: nw-resize;
+        }
+
+        .move-rect-tr {
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+            cursor: ne-resize;
+        }
+
+        .move-rect-rb {
+            right: 0;
+            bottom: 0;
+            transform: translate(50%, 50%);
+            cursor: se-resize;
+        }
+
+        .move-rect-lb {
+            left: 0;
+            bottom: 0;
+            transform: translate(-50%, 50%);
+            cursor: sw-resize;
+        }
+
+        .move-line {
+            position: absolute;
+        }
+
+        .move-line-top, .move-line-bottom{
+            width: 20px;
+            left: 50%;
+            height: 10px;
+        }
+        .move-line-top{
+            top: 0;
+            transform: translate(-50%, -50%);
+            cursor: n-resize;
+        }
+        .move-line-bottom{
+            bottom: 0;
+            transform: translate(-50%, 50%);
+            cursor: s-resize;
+        }
+        .move-line-left, .move-line-right{
+            width: 10px;
+            height: 20px;
+            top: 50%;
+        }
+        .move-line-left{
+            left: 0;
+            transform: translate(-50%, -50%);
+            cursor: w-resize;
+        }
+        .move-line-right{
+            right: 0;
+            transform: translate(50%, -50%);
+            cursor: e-resize;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <div class="child resize-item" data-effect="start.x,start.y,end.x,end.y">
+        <span class="move-rect move-rect-tl" data-effect="start.x,start.y"></span>
+        <span class="move-rect move-rect-tr" data-effect="end.x,start.y"></span>
+        <span class="move-rect move-rect-rb" data-effect="end.x,end.y"></span>
+        <span class="move-rect move-rect-lb" data-effect="start.x,end.y"></span>
+
+
+        <span class="move-line move-line-top" data-effect="start.y"></span>
+        <span class="move-line move-line-bottom" data-effect="end.y"></span>
+        <span class="move-line move-line-left" data-effect="start.x"></span>
+        <span class="move-line move-line-right" data-effect="end.x"></span>
+    </div>
+</div>
+<script type="module">
+    import Resizable from '../dist/es/index.js'
+
+    const resizer = new Resizable('#box')
+    
+    console.log(resizer)
+
+</script>
+</body>
+</html>

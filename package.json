@@ -1,0 +1,32 @@
+{
+  "name": "@redbuck/resizable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/es/index.js",
+  "typings": "type/index.ts",
+  "scripts": {
+    "pretty": "pretty-quick",
+    "build": "rimraf dist/ && rollup --config rollup.config.js --silent && npx prettier -w src",
+    "watch": "rollup -w -c",
+    "dev": "pnpm watch & pnpm example",
+    "example": "npx serve . -p 3000"
+  },
+  "pre-commit": [
+    "pretty"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.3",
+    "pre-commit": "^1.2.2",
+    "prettier": "^3.0.3",
+    "pretty-quick": "^3.1.3",
+    "rimraf": "^5.0.5",
+    "rollup": "~2.69.2",
+    "rollup-plugin-typescript2": "~0.34.1",
+    "tslib": "~2.3.1",
+    "typescript": "~5.0.3"
+  }
+}
