@@ -1,6 +1,6 @@
 {
   "name": "@redbuck/resizable",
-  "version": "1.0.1",
+  "version": "1.0.1-beta.0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/es/index.js",
