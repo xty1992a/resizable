@@ -1,5 +1,7 @@
 name: CI Flow
+
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
