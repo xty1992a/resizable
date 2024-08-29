@@ -19,6 +19,7 @@ const mkConfig = (cfg) => {
 
 export default async () => {
 
+  cp.execSync('mkdir dist')
   cp.execSync('cp src/index.css dist/index.css')
 
   return [
