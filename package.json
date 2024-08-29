@@ -1,6 +1,6 @@
 {
   "name": "@redbuck/resizable",
-  "version": "1.0.1-beta.1",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/es/index.js",
@@ -10,7 +10,7 @@
     "build": "rimraf dist/ && rollup --config rollup.config.js --silent && npx prettier -w src",
     "watch": "rollup -w -c",
     "dev": "pnpm watch & pnpm example",
-    "example": "npx serve . -p 3000"
+    "example": "npx serve . -p 3003"
   },
   "pre-commit": [
     "pretty"

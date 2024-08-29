@@ -1,7 +1,7 @@
 ## Install
 `pnpm i @redbuck/resizable`
 
-## Use
+## Usage
 ```html
 
 <div id="box">
@@ -19,8 +19,11 @@
     </div>
 </div>
 
+<!-- linking default style and of course you can modify it-->
+<link rel="stylesheet" href="../dist/index.css">
+
 <script type="module">
-    import Resizable from 'to/path'
+    import Resizable from '../dist/es/index.js'
     
     const resizer = new Resizable('#box')
     
@@ -28,3 +31,22 @@
 </script>
 
 ```
+
+
+## API
+
+### options
+| Method  | Description                                                                                      | default                                                                  |
+| ----- |--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| container | The container element or selector                                                                | -                                                                        |
+| itemClassName | Which child element under el will effect                                                         | resize-item                                                              |
+| effectManual | Should resizer instance effect dom manual                                                        | false                                                                    |
+| getItemOnStart | When drag start, carry the touched element call this function to get which item should be effect | find ancestors(include self) which one`s classList contain itemClassName |
+| getEffectOnStart | When drag start, carry the touched element call this function to get effect in this drag         | el => el.dataset.effect.split(',')                                       |
+| getPointsOnStart | When drag start, carry the touched element call this function to get initial points in this drag | el => el.dataset.effect.split(',')                                       |
+| listenerFactory | You can use this option to provide your own Listener                                             | web-listener                                                |
+
+### events
+| Method  | Description                                              |
+| ----- |----------------------------------------------------------|
+| effect | Emitted when drag move , carry the target and it`s shape |

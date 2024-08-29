@@ -1,6 +1,6 @@
 import typescript from "rollup-plugin-typescript2";
 import terser from "@rollup/plugin-terser";
-
+import * as cp from 'child_process'
 const mkConfig = (cfg) => {
   return {
     ...cfg,
@@ -18,12 +18,15 @@ const mkConfig = (cfg) => {
 };
 
 export default async () => {
+
+  cp.execSync('cp src/index.css dist/index.css')
+
   return [
     mkConfig({
       input: "src/index.ts",
       output: [
         {
-          name: "resizable",
+          name: "Resizable",
           file: "dist/index.js",
           format: "umd",
         },
