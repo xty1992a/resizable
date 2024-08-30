@@ -2,6 +2,10 @@
 `pnpm i @redbuck/resizable`
 
 ## Usage
+
+[Live Demo](https://codepen.io/xty1992a/pen/KKjxKwq)
+
+
 ```html
 
 <div id="box">
@@ -43,7 +47,7 @@
 | effectManual | Should resizer instance effect dom manual                                                        | false                                                                    |
 | getItemOnStart | When drag start, carry the touched element call this function to get which item should be effect | find ancestors(include self) which one`s classList contain itemClassName |
 | getEffectOnStart | When drag start, carry the touched element call this function to get effect in this drag         | el => el.dataset.effect.split(',')                                       |
-| getPointsOnStart | When drag start, carry the touched element call this function to get initial points in this drag | el => el.dataset.effect.split(',')                                       |
+| getPointsOnStart | When drag start, carry the touched element call this function to get initial points in this drag | Resizable.getPoints                                       |
 | listenerFactory | You can use this option to provide your own Listener                                             | web-listener                                                |
 
 ### events
